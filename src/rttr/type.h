@@ -1104,6 +1104,12 @@ class RTTR_API type
         template<typename T>
         static void register_less_than_comparator();
 
+        /*!
+         * \brief This function returns the most derived type for the given object \p ptr of type \p source_type.
+         *
+         * \return Returns the most derived type for the given instance \p ptr.
+         */
+        static type get_derived_type(void* ptr, const type& source_type) RTTR_NOEXCEPT;
     private:
 
         /*!
@@ -1127,13 +1133,6 @@ class RTTR_API type
          * \return Returns the converted pointer; when the conversion fails is a null pointer is returned.
          */
         static void* apply_offset(void* ptr, const type& source_type, const type& target_type) RTTR_NOEXCEPT;
-
-        /*!
-         * \brief This function returns the most derived type for the given object \p ptr of type \p source_type.
-         *
-         * \return Returns the most derived type for the given instance \p ptr.
-         */
-        static type get_derived_type(void* ptr, const type& source_type) RTTR_NOEXCEPT;
 
         /*!
          * \brief When for the current type instance a converter function to type \p target_type was registered,
